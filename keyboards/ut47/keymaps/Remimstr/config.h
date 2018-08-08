@@ -19,6 +19,6 @@
 
 #include "config_common.h"
 
-// place overrides here
+#define TAPPING_TOGGLE 1
 
 #endif
