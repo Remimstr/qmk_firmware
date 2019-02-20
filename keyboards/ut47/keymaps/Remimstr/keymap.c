@@ -35,24 +35,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * ,-------------------------------------------------------------------------.
    * | Esc |  q  |  w  |  e  |  r  |  t  |  y  |  u  |  i  |  o  |  p  |Bspace |
    * |-------------------------------------------------------------------------+
-   * | Down |  a  |  s  |  d  |  f  |  g  |  h  |  j  |  k  |  l  |  :  |  UP  |
+   * |DWN(3)|  a  |  s  |  d  |  f  |  g  |  h  |  j  |  k  |  l  |  :  |UP(2) |
    * |-------------------------------------------------------------------------+
-   * | Tab   |  z  |  x  |  c  |  v  |  b  |  n  |  m  |  .  |  '  |  /  |Vol+ |
+   * |Tab/SFT|  z  |  x  |  c  |  v  |  b  |  n  |  m  |  .  |  '  |  /  |Vol+ |
    * |-------------------------------------------------------------------------+
-   * |     |     | Alt | Win |Ctr/S|   SHIFT    | RET  | MOV |     |Mute |Vol- |
+   * |     |     | Alt | Win |Ctrl | SFT(1)/SPC | RET  |MV(4)|     |Mute |Vol- |
    * `-------------------------------------------------------------------------'
    */
 
 LAYOUT(
-  KC_ESC,  KC_Q,    KC_W,    KC_E,     KC_R,                KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,     KC_P,          KC_BSPC,
-  MO(3),   KC_A,    KC_S,    KC_D,     KC_F,                KC_G,    KC_H,    KC_J,    KC_K,    KC_L,     KC_COLON,      MO(2),
-  KC_TAB , KC_Z,    KC_X,    KC_C,     KC_V,                KC_B,    KC_N,    KC_M,    KC_DOT,  KC_QUOTE, KC_SLASH,      KC_AUDIO_VOL_UP,
-  _______, _______, KC_LALT, KC_LGUI,  MT(MOD_LCTL, KC_SPC),      MO(1),      KC_ENTER,TT(4),   _______,  KC_AUDIO_MUTE, KC_AUDIO_VOL_DOWN
+  KC_ESC,               KC_Q,    KC_W,    KC_E,     KC_R,                KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,     KC_P,          KC_BSPC,
+  MO(3),                KC_A,    KC_S,    KC_D,     KC_F,                KC_G,    KC_H,    KC_J,    KC_K,    KC_L,     KC_COLON,      MO(2),
+  MT(MOD_LSFT, KC_TAB), KC_Z,    KC_X,    KC_C,     KC_V,                KC_B,    KC_N,    KC_M,    KC_DOT,  KC_QUOTE, KC_SLASH,      KC_AUDIO_VOL_UP,
+  _______,              _______, KC_LALT, KC_LGUI,  KC_LCTRL,            LT(1, KC_SPACE),  KC_ENTER,TT(4),   _______,  KC_AUDIO_MUTE, KC_AUDIO_VOL_DOWN
 ),
 
   /* FN Layer 1 (Shift)
    * ,-------------------------------------------------------------------------.
-   * |  ~  |  Q  |  W  |  E  |  R  |  T  |  Y  |  U  |  I  |  O  |  P  |Delete |
+   * |     |  Q  |  W  |  E  |  R  |  T  |  Y  |  U  |  I  |  O  |  P  |Delete |
    * |-------------------------------------------------------------------------+
    * |      |  A  |  S  |  D  |  F  |  G  |  H  |  J  |  K  |  L  |  ;  |      |
    * |-------------------------------------------------------------------------+
@@ -63,17 +63,17 @@ LAYOUT(
    */
 
 LAYOUT(
-  KC_TILDE, S(KC_Q),    S(KC_W),    S(KC_E),    S(KC_R),    S(KC_T),    S(KC_Y),   S(KC_U),    S(KC_I),    S(KC_O),         S(KC_P),      KC_DELETE,
-  _______,  S(KC_A),    S(KC_S),    S(KC_D),    S(KC_F),    S(KC_G),    S(KC_H),   S(KC_J),    S(KC_K),    S(KC_L),         KC_SCOLON,     _______,
+  _______,  S(KC_Q),    S(KC_W),    S(KC_E),    S(KC_R),    S(KC_T),    S(KC_Y),   S(KC_U),    S(KC_I),    S(KC_O),         S(KC_P),      KC_DELETE,
+  _______,  S(KC_A),    S(KC_S),    S(KC_D),    S(KC_F),    S(KC_G),    S(KC_H),   S(KC_J),    S(KC_K),    S(KC_L),         KC_SCOLON,    _______,
   KC_CAPS,  S(KC_Z),    S(KC_X),    S(KC_C),    S(KC_V),    S(KC_B),    S(KC_N),   S(KC_M),    KC_COMMA,   KC_DOUBLE_QUOTE, KC_BSLASH,    _______,
   RESET,    _______,    _______,    _______,    _______,          _______,         _______,    _______,    _______,         _______,      _______
 ),
 
   /* FN Layer 2 (UP)
    * ,-------------------------------------------------------------------------.
-   * |  0  |  1  |  2  |  3  |     |     |     |  +  |  *  |  =  |     |       |
+   * |  0  |  1  |  2  |  3  |     |     |     |  +  |  *  |  ^  |  $  |       |
    * |-------------------------------------------------------------------------+
-   * |      |  4  |  5  |  6  |     |     |     |  -  |  /  |  %  |     |      |
+   * |      |  4  |  5  |  6  |     |     |     |  -  |  %  |  =  |  #  |      |
    * |-------------------------------------------------------------------------+
    * |       |  7  |  8  |  9  |     |     |     |     |     |     |     |     |
    * |-------------------------------------------------------------------------+
@@ -82,17 +82,17 @@ LAYOUT(
    */
 
 LAYOUT(
-  KC_0,     KC_1,    KC_2,    KC_3,    _______, _______, _______, KC_PLUS,   KC_ASTERISK, KC_EQUAL,   _______,  _______,
-  _______,  KC_4,    KC_5,    KC_6,    _______, _______, _______, KC_MINUS,  KC_SLASH,    KC_PERCENT, _______,  _______,
-  _______,  KC_7,    KC_8,    KC_9,    _______, _______, _______, _______,   _______,     _______,    _______,  _______,
-  _______,  _______, _______, _______, _______,      _______,     _______,   _______,     _______,    _______,  _______
+  KC_0,     KC_1,    KC_2,    KC_3,    _______, _______, _______, KC_PLUS,   KC_ASTERISK, KC_CIRCUMFLEX,   KC_DOLLAR, _______,
+  _______,  KC_4,    KC_5,    KC_6,    _______, _______, _______, KC_MINUS,  KC_PERCENT,  KC_EQUAL,        KC_HASH,   _______,
+  _______,  KC_7,    KC_8,    KC_9,    _______, _______, _______, _______,   _______,     _______,         _______,   _______,
+  _______,  _______, _______, _______, _______,      _______,     _______,   _______,     _______,         _______,   _______
 ),
 
   /* FN Layer 3 (DOWN)
    * ,-------------------------------------------------------------------------.
-   * |     |     |  (  |  {  |  [  |  <  |     |     |  !  |  @  |  #  |       |
+   * |     |     |  (  |  {  |  [  |  <  |     |  &  |  !  |  ~  |     |       |
    * |-------------------------------------------------------------------------+
-   * |      |     |  )  |  }  |  ]  |  >  |     |  _  |  ?  |  &  |  $  |      |
+   * |      |     |  )  |  }  |  ]  |  >  |     |  _  |  ?  |     |     |      |
    * |-------------------------------------------------------------------------+
    * |       |     |     |     |     |     |     |     |     |  `  |  |  |     |
    * |-------------------------------------------------------------------------+
@@ -101,8 +101,8 @@ LAYOUT(
    */
 
 LAYOUT(
-  _______, _______,  KC_LEFT_PAREN,  KC_LEFT_CURLY_BRACE,  KC_LBRACKET, KC_LEFT_ANGLE_BRACKET,  _______,   _______,       KC_EXCLAIM,  KC_AT,        KC_HASH,        _______,
-  _______, _______,  KC_RIGHT_PAREN, KC_RIGHT_CURLY_BRACE, KC_RBRACKET, KC_RIGHT_ANGLE_BRACKET, _______,   KC_UNDERSCORE, KC_QUESTION, KC_AMPERSAND, KC_DOLLAR,      _______,
+  _______, _______,  KC_LEFT_PAREN,  KC_LEFT_CURLY_BRACE,  KC_LBRACKET, KC_LEFT_ANGLE_BRACKET,  _______,   KC_AMPERSAND,  KC_EXCLAIM,  KC_TILDE,     _______,        _______,
+  _______, _______,  KC_RIGHT_PAREN, KC_RIGHT_CURLY_BRACE, KC_RBRACKET, KC_RIGHT_ANGLE_BRACKET, _______,   KC_UNDERSCORE, KC_QUESTION, _______,      _______,        _______,
   _______, _______,  _______,        _______,              _______,     _______,                _______,   _______,       _______,     KC_GRAVE,     KC_PIPE,        _______,
   _______, _______,  _______,        _______,              _______,                             _______,   _______,       _______,     _______,      _______,        _______
 ),

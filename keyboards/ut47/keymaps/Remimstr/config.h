@@ -19,6 +19,6 @@
 
 #include "config_common.h"
 
-#define TAPPING_TOGGLE 1
+#define TAPPING_TOGGLE 2
 
 #endif
