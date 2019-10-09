@@ -39,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |-------------------------------------------------------------------------+
    * |Tab/SFT|  z  |  x  |  c  |  v  |  b  |  n  |  m  |  .  |  '  |  /  |Vol+ |
    * |-------------------------------------------------------------------------+
-   * |     |     | Alt |Ctrl |SFT(1)|   SPC     | RET  | Gui |MV(4)|Mute |Vol- |
+   * |TMUX |     | Alt |Ctrl |SFT(1)|   SPC     | RET  | Gui |MV(4)|Mute |Vol- |
    * `-------------------------------------------------------------------------'
    */
 
@@ -47,7 +47,7 @@ LAYOUT(
   KC_ESC,               KC_Q,    KC_W,    KC_E,     KC_R,                KC_T,    KC_Y,   KC_U,     KC_I,    KC_O,     KC_P,          KC_BSPC,
   MO(3),                KC_A,    KC_S,    KC_D,     KC_F,                KC_G,    KC_H,   KC_J,     KC_K,    KC_L,     KC_COLON,      MO(2),
   MT(MOD_LSFT, KC_TAB), KC_Z,    KC_X,    KC_C,     KC_V,                KC_B,    KC_N,   KC_M,     KC_DOT,  KC_QUOTE, KC_SLASH,      KC_AUDIO_VOL_UP,
-  _______,              _______, KC_LALT, KC_LCTRL, MO(1),               KC_SPACE,        KC_ENTER, KC_LGUI, TT(4),    KC_AUDIO_MUTE, KC_AUDIO_VOL_DOWN
+  LCTL(KC_A),           _______, KC_LALT, KC_LCTRL, MO(1),               KC_SPACE,        KC_ENTER, KC_LGUI, TT(4),    KC_AUDIO_MUTE, KC_AUDIO_VOL_DOWN
 ),
 
   /* FN Layer 1 (Shift)
@@ -120,11 +120,11 @@ LAYOUT(
    */
 
 LAYOUT(
-  _______, KC_1,    KC_2,    KC_3,    _______, _______, _______, _______, _______, _______,  _______, _______,  
-  _______, KC_4,    KC_5,    KC_6,    _______, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, _______, _______,  
-  _______, KC_7,    KC_8,    KC_9,    _______, _______, _______, _______, _______, _______,  _______, _______,  
-  _______, _______, _______, _______, _______,      _______,     _______, _______, _______,  _______, _______ 
-) 
+  _______, KC_1,    KC_2,    KC_3,    _______, _______, _______, _______, _______, _______,  _______, _______,
+  _______, KC_4,    KC_5,    KC_6,    _______, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, _______, _______,
+  _______, KC_7,    KC_8,    KC_9,    _______, _______, _______, _______, _______, _______,  _______, _______,
+  _______, _______, _______, _______, _______,      _______,     _______, _______, _______,  _______, _______
+)
 };
 
 //LED keymap functions
