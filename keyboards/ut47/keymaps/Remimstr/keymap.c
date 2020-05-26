@@ -1,4 +1,4 @@
-/* Copyright 2018 Carlos Filoteo
+/* Copyright 2019 Carlos Filoteo
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -37,17 +37,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |-------------------------------------------------------------------------+
    * |DWN(3)|  a  |  s  |  d  |  f  |  g  |  h  |  j  |  k  |  l  |  :  |UP(2) |
    * |-------------------------------------------------------------------------+
-   * |Tab/SFT|  z  |  x  |  c  |  v  |  b  |  n  |  m  |  .  |  '  |  /  |Vol+ |
+   * | SFT   |  z  |  x  |  c  |  v  |  b  |  n  |  m  |  .  |  '  |  /  |Vol+ |
    * |-------------------------------------------------------------------------+
-   * |TMUX |     | Alt |Ctrl |SFT(1)|   SPC     | RET  | Gui |MV(4)|Mute |Vol- |
+   * |     |     | Alt |Ctrl |SFT/Tb|   SPC     | RET  | Gui |MV(4)|Mute |Vol- |
    * `-------------------------------------------------------------------------'
    */
 
 LAYOUT(
-  KC_ESC,               KC_Q,    KC_W,    KC_E,     KC_R,                KC_T,    KC_Y,   KC_U,     KC_I,    KC_O,     KC_P,          KC_BSPC,
-  MO(3),                KC_A,    KC_S,    KC_D,     KC_F,                KC_G,    KC_H,   KC_J,     KC_K,    KC_L,     KC_COLON,      MO(2),
-  MT(MOD_LSFT, KC_TAB), KC_Z,    KC_X,    KC_C,     KC_V,                KC_B,    KC_N,   KC_M,     KC_DOT,  KC_QUOTE, KC_SLASH,      KC_AUDIO_VOL_UP,
-  LCTL(KC_A),           _______, KC_LALT, KC_LCTRL, MO(1),               KC_SPACE,        KC_ENTER, KC_LGUI, TT(4),    KC_AUDIO_MUTE, KC_AUDIO_VOL_DOWN
+  KC_ESC,               KC_Q,    KC_W,    KC_E,     KC_R,                KC_T,    KC_Y,   KC_U,     KC_I,    KC_O,     KC_P,                 KC_BSPC,
+  MO(3),                KC_A,    KC_S,    KC_D,     KC_F,                KC_G,    KC_H,   KC_J,     KC_K,    KC_L,     KC_COLON,             MO(2),
+  KC_LSFT,              KC_Z,    KC_X,    KC_C,     KC_V,                KC_B,    KC_N,   KC_M,     KC_DOT,  KC_QUOTE, KC_SLASH,             KC_AUDIO_VOL_UP,
+  LCTL(KC_A),           _______, KC_LALT, KC_LCTRL, LT(1, KC_TAB),       KC_SPACE,        KC_ENTER, KC_LGUI, MO(4),    LT(5, KC_AUDIO_MUTE), KC_AUDIO_VOL_DOWN
 ),
 
   /* FN Layer 1 (Shift)
@@ -120,10 +120,29 @@ LAYOUT(
    */
 
 LAYOUT(
-  _______, KC_1,    KC_2,    KC_3,    _______, _______, _______, _______, _______, _______,  _______, _______,
+  KC_0,    KC_1,    KC_2,    KC_3,    _______, _______, _______, _______, _______, _______,  _______, _______,
   _______, KC_4,    KC_5,    KC_6,    _______, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, _______, _______,
   _______, KC_7,    KC_8,    KC_9,    _______, _______, _______, _______, _______, _______,  _______, _______,
   _______, _______, _______, _______, _______,      _______,     _______, _______, _______,  _______, _______
+),
+
+  /* FN Layer 5 (ARROW)
+   * ,-------------------------------------------------------------------------.
+   * |     | F1  | F2  | F3  | F10 |     |     |     |     |     |     |       |
+   * |-------------------------------------------------------------------------+
+   * |      | F4  | F5  | F6  | F11 |     |     |     |     |     |      |     |
+   * |-------------------------------------------------------------------------+
+   * |       | F7  | F8  | F9  | F12 |     |     |     |     |     |     |     |
+   * |-------------------------------------------------------------------------+
+   * |     |     |     |     |      |           |      |     |     |     |     |
+   * `-------------------------------------------------------------------------'
+   */
+
+LAYOUT(
+  _______, KC_F1,   KC_F2,   KC_F3,   KC_F10,  _______, _______, _______, _______, _______, _______, _______,
+  _______, KC_F4,   KC_F5,   KC_F6,   KC_F11,  _______, _______, _______,	_______, _______, _______, _______,
+  _______, KC_F7,   KC_F8,   KC_F9,   KC_F12,  _______, _______, _______, _______, _______, _______, _______,
+  _______, _______, _______, _______, _______,      _______,     _______, _______, _______, _______, _______
 )
 };
 
